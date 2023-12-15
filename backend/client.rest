@@ -1,0 +1,27 @@
+### get todos
+GET http://localhost:8080/todos 
+
+### get todo
+GET http://localhost:8080/todos/8df8e923-7e8d-44fb-83dc-a293bd5311bf
+
+### add todo
+POST http://localhost:8080/todos 
+Content-Type: application/json
+
+{ 
+  "title" : "todo item",
+  "completed": false
+}
+
+### delete todo
+DELETE http://localhost:8080/todos/8df8e923-7e8d-44fb-83dc-a293bd5311bf
+
+
+### add todo
+PUT http://localhost:8080/todos/8df8e923-7e8d-44fb-83dc-a293bd5311bf
+Content-Type: application/json
+
+{ 
+  "title" : "todo item update",
+  "completed": true
+}

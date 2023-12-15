@@ -1,0 +1,37 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+      - swaggers/**
+      - swaggers2/**
+      - input_folder/**
+      - swagger_examples/**
+      - $package$
+    builders:
+      chopper_generator:
+        options:
+          header: "//Generated code"
+      swagger_dart_code_generator:
+        options:
+          input_folder: "input_folder/"
+          output_folder: "lib/generated/"
+          input_urls:
+            - "http://localhost:8080/openapi.json"
+          with_base_url: true
+          with_converter: true
+          use_path_for_request_names: true
+          use_default_null_for_lists: true
+          override_equals_and_hashcode: false
+          build_only_models: false
+          separate_models: true
+          cut_from_model_names: "ModelRenameV3"
+          ignore_headers: false
+          use_required_attribute_for_headers: false
+          include_if_null: false
+          default_values_map:
+            - type_name: int
+              default_value: "36"
+            - type_name: String
+              default_value: "default"
+            - type_name: "List<String>"
+              default_value: "[]"
