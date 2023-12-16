@@ -6,16 +6,18 @@ import 'package:uuid/uuid.dart';
 List<Todo> todos = [];
 
 class TodoService {
-  // get todos
+  /// get todos
   List<Todo> getTodos() {
     return todos;
   }
 
+  /// get todo
   Todo getTodo(String id) {
     final result = todos.firstWhere((element) => (element.id == id));
     return result;
   }
 
+  /// add todo
   Todo addTodo({required Map<String, dynamic> todo}) {
     final input = Todo(
       id: Uuid().v4(),
@@ -26,10 +28,12 @@ class TodoService {
     return input;
   }
 
+  /// delete todo
   void deleteTodo({required String id}) {
     todos.removeWhere((element) => (element.id == id));
   }
 
+  /// update todo
   Todo updateTodo({required Map<String, dynamic> todo, required String id}) {
     return todos.firstWhere((element) {
       if (element.id == id) {
