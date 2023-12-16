@@ -15,7 +15,7 @@ Future<Response> onRequest(
           final todo = TodoService().getTodo(id);
           return Response.json(body: todo.toJson());
         } catch (e) {
-          return Response(statusCode: HttpStatus.badRequest);
+          return Response(statusCode: HttpStatus.badRequest, body: '${e}');
         }
       }
     case HttpMethod.delete:
@@ -24,7 +24,7 @@ Future<Response> onRequest(
           TodoService().deleteTodo(id: id);
           return Response(statusCode: HttpStatus.ok);
         } catch (e) {
-          return Response(statusCode: HttpStatus.badRequest);
+          return Response(statusCode: HttpStatus.badRequest, body: '${e}');
         }
       }
 
@@ -35,7 +35,7 @@ Future<Response> onRequest(
           final result = TodoService().updateTodo(todo: todo, id: id);
           return Response.json(body: result.toJson());
         } catch (e) {
-          return Response(statusCode: HttpStatus.badRequest);
+          return Response(statusCode: HttpStatus.badRequest, body: '${e}');
         }
       }
     default:
