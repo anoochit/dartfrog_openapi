@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:backend/services/todos_services.dart';
 import 'package:dart_frog/dart_frog.dart';
 
+/// The /todos route
+///
+/// @Allow(GET,POST)
 Future<Response> onRequest(RequestContext context) async {
   final req = context.request;
 

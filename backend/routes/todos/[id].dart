@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:backend/services/todos_services.dart';
 import 'package:dart_frog/dart_frog.dart';
 
+/// The /todos/[id] route
+///
+/// @Allow(GET,DELETE,PUT)
 Future<Response> onRequest(
   RequestContext context,
   String id,
